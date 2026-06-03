@@ -331,8 +331,8 @@
     <h2>2. Key Result Areas (KRA)</h2>
 
     <div class="q-block">
-      <div class="q-label">1) What do you think is your primary responsibility in your role?</div>
-      <div class="field"><textarea id="kra1" placeholder="Describe your primary responsibility…"></textarea></div>
+      <div class="q-label">1) What do you consider your primary responsibilities and current KRAs, and how well are you achieving them?</div>
+      <div class="field"><textarea id="kra1" placeholder="Describe your primary responsibilities and how well you are meeting them…"></textarea></div>
     </div>
 
     <div class="q-block">
@@ -367,18 +367,8 @@
     </div>
 
     <div class="q-block">
-      <div class="q-label">5) What do you think are your current KRAs? How well are you achieving your goals?</div>
-      <div class="field"><textarea id="kra5" placeholder="Your response…"></textarea></div>
-    </div>
-
-    <div class="q-block">
-      <div class="q-label">6) Task Management: How do you manage your day-to-day tasks? Do you have a special method?</div>
+      <div class="q-label">5) How do you manage your day-to-day tasks, and how does your approach change during busy or high-pressure days?</div>
       <div class="field"><textarea id="kra6" placeholder="Your response…"></textarea></div>
-    </div>
-
-    <div class="q-block">
-      <div class="q-label">7) How do you manage your busy days?</div>
-      <div class="field"><textarea id="kra7" placeholder="Your response…"></textarea></div>
     </div>
   </div>
 
@@ -411,13 +401,8 @@
     </div>
 
     <div class="q-block">
-      <div class="q-label">4) Knowledge Sharing: Have you contributed to internal FAQs or the company knowledge base to help the team?</div>
+      <div class="q-label">4) How consistently do you provide accurate technical information to customers, and have you contributed that knowledge to internal FAQs or the team knowledge base?</div>
       <div class="field"><textarea id="tech4" placeholder="Your response…"></textarea></div>
-    </div>
-
-    <div class="q-block">
-      <div class="q-label">5) Accuracy: How consistently are you providing correct technical information to customers on the first try?</div>
-      <div class="field"><textarea id="tech5" placeholder="Your response…"></textarea></div>
     </div>
   </div>
 
@@ -426,17 +411,12 @@
     <h2>4. Soft Skills &amp; Crisis Management</h2>
 
     <div class="q-block">
-      <div class="q-label">1) Describe a time you turned a frustrated or unhappy customer into a satisfied one. What approach did you take?</div>
+      <div class="q-label">1) How do you adapt your communication style for different customer personas, and can you describe a time you turned a frustrated customer into a satisfied one?</div>
       <div class="field"><textarea id="soft1" placeholder="Share your experience…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">2) How do you adapt your tone for different customer personas (e.g., first-time buyers vs. repeat professional clients)?</div>
-      <div class="field"><textarea id="soft2" placeholder="Your response…"></textarea></div>
-    </div>
-
-    <div class="q-block">
-      <div class="q-label">3) How effectively do you work with other departments (like Sales, Marketing, or Logistics) to solve issues?</div>
+      <div class="q-label">2) How effectively do you work with other departments (like Sales, Marketing, or Logistics) to solve issues?</div>
       <div class="field"><textarea id="soft3" placeholder="Your response…"></textarea></div>
     </div>
   </div>
@@ -456,23 +436,28 @@
     </div>
   </div>
 
-  <!-- 6. PROFESSIONAL DEVELOPMENT (updated questions) -->
+  <!-- 6. PROFESSIONAL DEVELOPMENT -->
   <div class="card">
     <h2>6. Professional Development &amp; Future Goals</h2>
 
     <div class="q-block">
-      <div class="q-label">1) What other skills would you want to learn, or what skills do you already have that you haven't been able to use in your current role?</div>
+      <div class="q-label">1) What was the biggest challenge you faced this year, how did you overcome it, and what new skill or knowledge did you gain from that experience?</div>
       <div class="field"><textarea id="dev1" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">2) Is there anything in this role that you dislike?</div>
+      <div class="q-label">2) What other skills would you want to learn, or what skills do you already have that you haven't been able to use — and are there areas where you feel you need additional training or support?</div>
       <div class="field"><textarea id="dev2" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">3) In this year, what are the goals that you have set for yourself?</div>
+      <div class="q-label">3) Is there anything in this role that you dislike?</div>
       <div class="field"><textarea id="dev3" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">4) What personal and professional goals have you set for yourself this year, and how do you see them aligning with your growth at Renaissance Jewel?</div>
+      <div class="field"><textarea id="dev4" placeholder="Your response…"></textarea></div>
     </div>
   </div>
 
@@ -539,26 +524,23 @@
         "Department/Team": val('team'),
         "Date Submitted": val('dateSubmitted'),
         "Q1 Brand Alignment": val('q1'),
-        "KRA1 Primary Responsibility": val('kra1'),
+        "KRA1 Primary Responsibility & KRAs": val('kra1'),
         "KRA2 Skills & Ratings": getSkillsData(),
         "KRA3 Cross-Functional Skills": val('kra3'),
         "KRA4 Client Satisfaction": val('kra4'),
-        "KRA5 Current KRAs": val('kra5'),
-        "KRA6 Task Management": val('kra6'),
-        "KRA7 Busy Days": val('kra7'),
+        "KRA5 Task Management & Busy Days": val('kra6'),
         "Tech1 Product Rating": val('productRating'),
         "Tech2 Diamond Knowledge": val('tech2'),
         "Tech3 Lab vs Mined": val('tech3'),
-        "Tech4 Knowledge Sharing": val('tech4'),
-        "Tech5 Accuracy": val('tech5'),
-        "Soft1 Crisis Management": val('soft1'),
-        "Soft2 Tone Adaptation": val('soft2'),
-        "Soft3 Cross-Dept Collaboration": val('soft3'),
+        "Tech4 Accuracy & Knowledge Sharing": val('tech4'),
+        "Soft1 Customer Handling & Communication": val('soft1'),
+        "Soft2 Cross-Dept Collaboration": val('soft3'),
         "Proc1 Recurring Issues": val('proc1'),
         "Proc2 Process Improvements": val('proc2'),
-        "Dev1 Skills to Learn or Unused": val('dev1'),
-        "Dev2 Dislikes in Role": val('dev2'),
-        "Dev3 Goals This Year": val('dev3'),
+        "Dev1 Biggest Challenge & Learnings": val('dev1'),
+        "Dev2 Skills to Learn & Training Needs": val('dev2'),
+        "Dev3 Dislikes in Role": val('dev3'),
+        "Dev4 Goals & Growth at Renaissance Jewel": val('dev4'),
       }
     };
 
