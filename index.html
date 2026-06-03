@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comprehensive Self-Appraisal | Renaissance Jewel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #f5f3ef;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .site-header {
+      background: #f5f3ef;
+      text-align: center;
+      padding: 3rem 1rem 1.5rem;
+    }
+    .site-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .site-header .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #b8973a;
+      margin-top: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+    .header-rule {
+      width: 80px;
+      height: 1px;
+      background: #c9b47a;
+      margin: 1.5rem auto 0.5rem;
+    }
+    .page-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: #1a1a2e;
+      margin: 0.5rem 0 2.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* FORM WRAPPER */
+    .form-wrap {
+      max-width: 980px;
+      margin: 0 auto 5rem;
+      padding: 0 1.5rem;
+    }
+
+    /* CARD */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e0d9cc;
+      border-top: 3px solid #c9b47a;
+      margin-bottom: 2rem;
+      padding: 2.5rem 2.5rem 2rem;
+    }
+
+    /* CARD HEADING */
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 1.75rem;
+    }
+    .card h2 .section-num {
+      font-weight: 400;
+    }
+
+    /* EMPLOYEE DETAILS GRID */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 680px) {
+      .details-grid { grid-template-columns: 1fr; }
+      .card { padding: 1.75rem 1.25rem; }
+      .site-header h1 { font-size: 2rem; }
+    }
+    @media (max-width: 900px) and (min-width: 681px) {
+      .details-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* FIELD */
+    .field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .field label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #1a1a2e;
+    }
+    .field label .req { color: #b8973a; }
+
+    .field input[type="text"],
+    .field input[type="date"],
+    .field select,
+    .field textarea {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.88rem;
+      color: #1a1a2e;
+      background: #ffffff;
+      border: 1px solid #ccc5b3;
+      padding: 0.6rem 0.9rem;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .field input[type="text"]::placeholder,
+    .field textarea::placeholder { color: #aaa49a; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #b8973a;
+      box-shadow: 0 0 0 3px rgba(184,151,58,0.1);
+    }
+    .field textarea {
+      resize: vertical;
+      min-height: 95px;
+      line-height: 1.65;
+    }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%231a1a2e' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.2rem;
+      cursor: pointer;
+      color: #1a1a2e;
+    }
+    .field select option[value=""] { color: #aaa49a; }
+
+    /* QUESTION BLOCK */
+    .q-block { margin-bottom: 1.6rem; }
+    .q-block:last-child { margin-bottom: 0; }
+    .q-label {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #1a1a2e;
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* SKILLS TABLE */
+    .skills-table-wrap { overflow-x: auto; }
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+    .skills-table thead tr {
+      background: #f5f3ef;
+      border-bottom: 2px solid #c9b47a;
+    }
+    .skills-table thead th {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1a1a2e;
+      padding: 0.6rem 0.85rem;
+      text-align: left;
+    }
+    .skills-table tbody tr {
+      border-bottom: 1px solid #e8e2d6;
+    }
+    .skills-table tbody td { padding: 0.45rem 0.45rem; }
+    .skills-table td input,
+    .skills-table td select {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      color: #1a1a2e;
+      background: #faf9f6;
+      border: 1px solid #ccc5b3;
+      padding: 0.45rem 0.65rem;
+      outline: none;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .skills-table td input:focus,
+    .skills-table td select:focus { border-color: #b8973a; }
+    .skills-table td select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath fill='%231a1a2e' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.6rem center;
+      padding-right: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* SELECT RATING narrow */
+    .narrow-select { max-width: 260px; }
+
+    /* CONFIDENTIALITY */
+    .conf-text {
+      font-size: 0.82rem;
+      color: #6b6357;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: #faf9f6;
+      border-left: 3px solid #c9b47a;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      cursor: pointer;
+      margin-bottom: 0.25rem;
+    }
+    .checkbox-row input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: #b8973a;
+      cursor: pointer;
+    }
+    .checkbox-row span {
+      font-size: 0.85rem;
+      color: #1a1a2e;
+      line-height: 1.55;
+    }
+
+    /* VALIDATION */
+    .field-error {
+      font-size: 0.7rem;
+      color: #c0392b;
+      display: none;
+      margin-top: 2px;
+    }
+    .field-error.show { display: block; }
+    .invalid { border-color: #c0392b !important; }
+
+    /* SUBMIT */
+    .submit-area { text-align: center; padding-top: 1.75rem; }
+    .btn-submit {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: #1a1a2e;
+      color: #f5f3ef;
+      border: none;
+      padding: 1rem 3.5rem;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .btn-submit:hover { background: #2d2d4a; }
+    .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .msg-success, .msg-error {
+      display: none;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      padding: 0.85rem 1.25rem;
+    }
+    .msg-success { background: #f0faf4; border: 1px solid #7dcea0; color: #1e7e4e; }
+    .msg-error   { background: #fff0f0; border: 1px solid #e57373; color: #c0392b; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <h1>Renaissance Jewel</h1>
+  <div class="tagline">Where Craftsmanship Meets Conscience</div>
+  <div class="header-rule"></div>
+  <div class="page-subtitle">Annual Performance Self-Appraisal</div>
+</header>
+
+<div class="form-wrap">
+<form id="appraisalForm" novalidate>
+
+  <!-- EMPLOYEE DETAILS -->
+  <div class="card">
+    <h2>Employee Details</h2>
+    <div class="details-grid">
+      <div class="field">
+        <label>Full Name <span class="req">*</span></label>
+        <input type="text" id="fullName" placeholder="Jane Doe" required />
+        <span class="field-error" id="err-fullName">Please enter your full name.</span>
+      </div>
+      <div class="field">
+        <label>Department / Team <span class="req">*</span></label>
+        <select id="team" required>
+          <option value="">Select your team</option>
+          <option value="Customer Support">Customer Support</option>
+          <option value="Sales">Sales</option>
+          <option value="Marketing">Marketing</option>
+        </select>
+        <span class="field-error" id="err-team">Please select your team.</span>
+      </div>
+      <div class="field">
+        <label>Date Submitted <span class="req">*</span></label>
+        <input type="date" id="dateSubmitted" required />
+        <span class="field-error" id="err-dateSubmitted">Please select a date.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. BRAND ALIGNMENT -->
+  <div class="card">
+    <h2>1. Brand Alignment &amp; Luxury Experience</h2>
+    <div class="q-block">
+      <div class="q-label">How do you ensure every client interaction or campaign reflects our "Modern Luxury" standard?</div>
+      <div class="field"><textarea id="q1" placeholder="Describe how you uphold the Renaissance brand values…"></textarea></div>
+    </div>
+  </div>
+
+  <!-- 2. KRA -->
+  <div class="card">
+    <h2>2. Key Result Areas (KRA)</h2>
+
+    <div class="q-block">
+      <div class="q-label">1) What do you think is your primary responsibility in your role?</div>
+      <div class="field"><textarea id="kra1" placeholder="Describe your primary responsibility…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">2) What are the top 5 skills required in your job? Rate your own proficiency out of these 5 (Scale: 1 = Needs Work, 5 = Expert).</div>
+      <div class="skills-table-wrap">
+        <table class="skills-table">
+          <thead>
+            <tr>
+              <th>Skill Name</th>
+              <th>Rating (1–5)</th>
+            </tr>
+          </thead>
+          <tbody id="skillsBody">
+            <tr><td><input type="text" placeholder="Skill 1" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+            <tr><td><input type="text" placeholder="Skill 2" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+            <tr><td><input type="text" placeholder="Skill 3" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+            <tr><td><input type="text" placeholder="Skill 4" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+            <tr><td><input type="text" placeholder="Skill 5" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">3) How do you think your role also requires cross-functional skills (e.g., Support using Sales skills, Marketing using Support empathy)? Explain with a scenario.</div>
+      <div class="field"><textarea id="kra3" placeholder="Share a scenario…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">4) How consistently are you able to satisfy clients or resolve queries? How easy do you find this?</div>
+      <div class="field"><textarea id="kra4" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">5) What do you think are your current KRAs? How well are you achieving your goals?</div>
+      <div class="field"><textarea id="kra5" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">6) Task Management: How do you manage your day-to-day tasks? Do you have a special method?</div>
+      <div class="field"><textarea id="kra6" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">7) How do you manage your busy days?</div>
+      <div class="field"><textarea id="kra7" placeholder="Your response…"></textarea></div>
+    </div>
+  </div>
+
+  <!-- 3. TECHNICAL KNOWLEDGE -->
+  <div class="card">
+    <h2>3. Technical Knowledge &amp; Product Expertise</h2>
+
+    <div class="q-block">
+      <div class="q-label">1) How would you rate your product knowledge on a scale of 1 to 5?</div>
+      <div class="field narrow-select">
+        <select id="productRating">
+          <option value="">Select Rating</option>
+          <option value="1 - Poor">1 – Poor</option>
+          <option value="2 - Fair">2 – Fair</option>
+          <option value="3 - Good">3 – Good</option>
+          <option value="4 - Very Good">4 – Very Good</option>
+          <option value="5 - Excellent">5 – Excellent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">2) Please summarize your knowledge about diamond specifications (4Cs), our jewelry types, and the technical info required before a customer places an order.</div>
+      <div class="field"><textarea id="tech2" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">3) How well do you understand the specific technical differences and sustainability of <em>lab-grown</em> diamonds vs mined?</div>
+      <div class="field"><textarea id="tech3" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">4) Knowledge Sharing: Have you contributed to internal FAQs or the company knowledge base to help the team?</div>
+      <div class="field"><textarea id="tech4" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">5) Accuracy: How consistently are you providing correct technical information to customers on the first try?</div>
+      <div class="field"><textarea id="tech5" placeholder="Your response…"></textarea></div>
+    </div>
+  </div>
+
+  <!-- 4. SOFT SKILLS -->
+  <div class="card">
+    <h2>4. Soft Skills &amp; Crisis Management</h2>
+
+    <div class="q-block">
+      <div class="q-label">1) Describe a time you turned a frustrated or unhappy customer into a satisfied one. What approach did you take?</div>
+      <div class="field"><textarea id="soft1" placeholder="Share your experience…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">2) How do you adapt your tone for different customer personas (e.g., first-time buyers vs. repeat professional clients)?</div>
+      <div class="field"><textarea id="soft2" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">3) How effectively do you work with other departments (like Sales, Marketing, or Logistics) to solve issues?</div>
+      <div class="field"><textarea id="soft3" placeholder="Your response…"></textarea></div>
+    </div>
+  </div>
+
+  <!-- 5. PROCESS IMPROVEMENTS -->
+  <div class="card">
+    <h2>5. Process Improvements</h2>
+
+    <div class="q-block">
+      <div class="q-label">1) Did you notice any recurring customer complaints, bottlenecks, or bugs this period? How did you report or address them?</div>
+      <div class="field"><textarea id="proc1" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">2) Have you suggested or implemented a shortcut, template, or workflow change that saved time for the team?</div>
+      <div class="field"><textarea id="proc2" placeholder="Your response…"></textarea></div>
+    </div>
+  </div>
+
+  <!-- 6. PROFESSIONAL DEVELOPMENT (updated questions) -->
+  <div class="card">
+    <h2>6. Professional Development &amp; Future Goals</h2>
+
+    <div class="q-block">
+      <div class="q-label">1) What other skills would you want to learn, or what skills do you already have that you haven't been able to use in your current role?</div>
+      <div class="field"><textarea id="dev1" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">2) Is there anything in this role that you dislike?</div>
+      <div class="field"><textarea id="dev2" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">3) In this year, what are the goals that you have set for yourself?</div>
+      <div class="field"><textarea id="dev3" placeholder="Your response…"></textarea></div>
+    </div>
+  </div>
+
+  <!-- CONFIDENTIALITY -->
+  <div class="card">
+    <h2>Confidentiality &amp; Acknowledgement</h2>
+    <p class="conf-text">The information contained within this self-appraisal, including strategic goals, operational procedures, and quantifiable metrics, is strictly confidential. By submitting this form, you acknowledge your responsibility to protect Renaissance Jewel's proprietary internal information and agree not to disclose any details discussed herein with unauthorized parties.</p>
+
+    <label class="checkbox-row">
+      <input type="checkbox" id="consentCheck" />
+      <span>I acknowledge the confidentiality of this review process and agree to the terms stated above. <span class="req" style="color:#b8973a">*</span></span>
+    </label>
+    <span class="field-error" id="err-consent" style="margin-top:0.35rem;">Please acknowledge the confidentiality agreement.</span>
+
+    <div class="submit-area">
+      <button type="submit" class="btn-submit" id="submitBtn">Submit Formal Appraisal</button>
+      <div class="msg-success" id="msgSuccess">✅ Appraisal submitted successfully!</div>
+      <div class="msg-error" id="msgError">⚠️ There was an error submitting. Please try again.</div>
+    </div>
+  </div>
+
+</form>
+</div>
+
+<script>
+  function getSkillsData() {
+    return Array.from(document.querySelectorAll('#skillsBody tr')).map((row, i) => {
+      const name = row.querySelector('input').value.trim() || '—';
+      const rating = row.querySelector('select').value || '—';
+      return `Skill ${i+1}: ${name} (${rating})`;
+    }).join('; ');
+  }
+
+  document.getElementById('appraisalForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    let valid = true;
+
+    [['fullName','err-fullName'], ['team','err-team'], ['dateSubmitted','err-dateSubmitted']].forEach(([id, errId]) => {
+      const el = document.getElementById(id);
+      const err = document.getElementById(errId);
+      if (!el.value.trim()) {
+        el.classList.add('invalid'); err.classList.add('show'); valid = false;
+      } else {
+        el.classList.remove('invalid'); err.classList.remove('show');
+      }
+    });
+
+    const consent = document.getElementById('consentCheck');
+    const errConsent = document.getElementById('err-consent');
+    if (!consent.checked) { errConsent.classList.add('show'); valid = false; }
+    else { errConsent.classList.remove('show'); }
+
+    if (!valid) return;
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    const val = id => document.getElementById(id).value.trim();
+
+    const payload = {
+      data: {
+        "Full Name": val('fullName'),
+        "Department/Team": val('team'),
+        "Date Submitted": val('dateSubmitted'),
+        "Q1 Brand Alignment": val('q1'),
+        "KRA1 Primary Responsibility": val('kra1'),
+        "KRA2 Skills & Ratings": getSkillsData(),
+        "KRA3 Cross-Functional Skills": val('kra3'),
+        "KRA4 Client Satisfaction": val('kra4'),
+        "KRA5 Current KRAs": val('kra5'),
+        "KRA6 Task Management": val('kra6'),
+        "KRA7 Busy Days": val('kra7'),
+        "Tech1 Product Rating": val('productRating'),
+        "Tech2 Diamond Knowledge": val('tech2'),
+        "Tech3 Lab vs Mined": val('tech3'),
+        "Tech4 Knowledge Sharing": val('tech4'),
+        "Tech5 Accuracy": val('tech5'),
+        "Soft1 Crisis Management": val('soft1'),
+        "Soft2 Tone Adaptation": val('soft2'),
+        "Soft3 Cross-Dept Collaboration": val('soft3'),
+        "Proc1 Recurring Issues": val('proc1'),
+        "Proc2 Process Improvements": val('proc2'),
+        "Dev1 Skills to Learn or Unused": val('dev1'),
+        "Dev2 Dislikes in Role": val('dev2'),
+        "Dev3 Goals This Year": val('dev3'),
+      }
+    };
+
+    try {
+      const res = await fetch('https://sheetdb.io/api/v1/yr38mf61zo7t0', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        document.getElementById('msgSuccess').style.display = 'block';
+        document.getElementById('msgError').style.display = 'none';
+        document.getElementById('appraisalForm').reset();
+        btn.textContent = 'Submitted ✓';
+      } else { throw new Error(); }
+    } catch {
+      document.getElementById('msgError').style.display = 'block';
+      document.getElementById('msgSuccess').style.display = 'none';
+      btn.disabled = false;
+      btn.textContent = 'Submit Formal Appraisal';
+    }
+  });
+</script>
+</body>
+</html>
