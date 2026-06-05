@@ -76,9 +76,6 @@
       color: #1a1a2e;
       margin-bottom: 1.75rem;
     }
-    .card h2 .section-num {
-      font-weight: 400;
-    }
 
     /* EMPLOYEE DETAILS GRID */
     .details-grid {
@@ -151,13 +148,20 @@
     .q-block:last-child { margin-bottom: 0; }
     .q-label {
       font-size: 0.9rem;
-      font-weight: 400;
+      font-weight: 600;
       color: #1a1a2e;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       line-height: 1.6;
     }
+    .q-hint {
+      font-size: 0.78rem;
+      color: #7a6e62;
+      font-style: italic;
+      margin-bottom: 0.55rem;
+      line-height: 1.55;
+    }
 
-    /* SKILLS TABLE */
+    /* SKILLS TABLE — pre-defined */
     .skills-table-wrap { overflow-x: auto; }
     .skills-table {
       width: 100%;
@@ -177,36 +181,100 @@
       padding: 0.6rem 0.85rem;
       text-align: left;
     }
-    .skills-table tbody tr {
-      border-bottom: 1px solid #e8e2d6;
-    }
-    .skills-table tbody td { padding: 0.45rem 0.45rem; }
-    .skills-table td input,
-    .skills-table td select {
-      font-family: 'Lato', sans-serif;
-      font-size: 0.85rem;
+    .skills-table thead th:last-child { text-align: center; }
+    .skills-table tbody tr { border-bottom: 1px solid #e8e2d6; }
+    .skills-table tbody tr:last-child { border-bottom: none; }
+    .skills-table tbody td { padding: 0.65rem 0.85rem; vertical-align: middle; }
+    .skills-table tbody td:last-child { text-align: center; }
+    .skill-name {
+      font-weight: 600;
+      font-size: 0.86rem;
       color: #1a1a2e;
-      background: #faf9f6;
-      border: 1px solid #ccc5b3;
-      padding: 0.45rem 0.65rem;
-      outline: none;
-      width: 100%;
-      appearance: none;
-      -webkit-appearance: none;
-      border-radius: 0;
+      display: block;
+      margin-bottom: 0.2rem;
     }
-    .skills-table td input:focus,
-    .skills-table td select:focus { border-color: #b8973a; }
-    .skills-table td select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath fill='%231a1a2e' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 0.6rem center;
-      padding-right: 1.6rem;
-      cursor: pointer;
+    .skill-desc {
+      font-size: 0.75rem;
+      color: #7a6e62;
+      font-style: italic;
     }
 
-    /* SELECT RATING narrow */
-    .narrow-select { max-width: 260px; }
+    /* RATING DOTS */
+    .rating-group { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+    .rating-group input[type="radio"] { display: none; }
+    .rating-group label {
+      width: 34px;
+      height: 34px;
+      border: 1.5px solid #ccc5b3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #7a6e62;
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .rating-group input[type="radio"]:checked + label {
+      background: #c9b47a;
+      border-color: #c9b47a;
+      color: #1a1a2e;
+    }
+    .rating-group label:hover {
+      border-color: #b8973a;
+      color: #1a1a2e;
+    }
+
+    /* SCORE SCALE */
+    .score-scale {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+    .score-scale input[type="radio"] { display: none; }
+    .score-scale label {
+      width: 42px;
+      height: 42px;
+      border: 1.5px solid #ccc5b3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #7a6e62;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .score-scale input[type="radio"]:checked + label {
+      background: #1a1a2e;
+      border-color: #1a1a2e;
+      color: #c9b47a;
+    }
+    .score-scale label:hover { border-color: #b8973a; color: #1a1a2e; }
+    .scale-legend {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: #7a6e62;
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    /* SCENARIO BOX */
+    .scenario-box {
+      background: #faf9f6;
+      border: 1px solid #e0d9cc;
+      border-left: 3px solid #c9b47a;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.86rem;
+      line-height: 1.7;
+      color: #2c2318;
+    }
+    .scenario-box strong { font-weight: 700; }
 
     /* CONFIDENTIALITY */
     .conf-text {
@@ -240,12 +308,7 @@
     }
 
     /* VALIDATION */
-    .field-error {
-      font-size: 0.7rem;
-      color: #c0392b;
-      display: none;
-      margin-top: 2px;
-    }
+    .field-error { font-size: 0.7rem; color: #c0392b; display: none; margin-top: 2px; }
     .field-error.show { display: block; }
     .invalid { border-color: #c0392b !important; }
 
@@ -284,7 +347,7 @@
   <h1>Renaissance Jewel</h1>
   <div class="tagline">Where Craftsmanship Meets Conscience</div>
   <div class="header-rule"></div>
-  <div class="page-subtitle">Quarterly Performance Self-Appraisal</div>
+  <div class="page-subtitle">Annual Performance Self-Appraisal</div>
 </header>
 
 <div class="form-wrap">
@@ -320,9 +383,20 @@
   <!-- 1. BRAND ALIGNMENT -->
   <div class="card">
     <h2>1. Brand Alignment &amp; Luxury Experience</h2>
+
     <div class="q-block">
-      <div class="q-label">How do you ensure every client interaction or campaign reflects our "Modern Luxury" standard?</div>
-      <div class="field"><textarea id="q1" placeholder="Describe how you uphold the Renaissance brand values…"></textarea></div>
+      <div class="q-label">1.1 How do you ensure every client interaction or campaign reflects our "Modern Luxury" standard?</div>
+      <div class="field"><textarea id="q1_1" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">1.2 Give one example this quarter where you made a client feel the Renaissance Jewel difference.</div>
+      <div class="field"><textarea id="q1_2" placeholder="Share a specific example…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">1.3 Give one example where a client interaction fell short of the standard — and what you did about it.</div>
+      <div class="field"><textarea id="q1_3" placeholder="Be honest — what happened and how did you respond…"></textarea></div>
     </div>
   </div>
 
@@ -331,44 +405,117 @@
     <h2>2. Key Result Areas (KRA)</h2>
 
     <div class="q-block">
-      <div class="q-label">1) What do you consider your primary responsibilities and current KRAs, and how well are you achieving them?</div>
-      <div class="field"><textarea id="kra1" placeholder="Describe your primary responsibilities and how well you are meeting them…"></textarea></div>
+      <div class="q-label">2.1 What are your primary responsibilities and KRAs in your current role, and how do you prioritize and manage your day-to-day tasks to consistently achieve them, especially during busy or high-pressure periods?</div>
+      <div class="field"><textarea id="q2_1" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">2) What are the top 5 skills required in your job? Rate your own proficiency out of these 5 (Scale: 1 = Needs Work, 5 = Expert).</div>
+      <div class="q-label">2.2 Rate your proficiency in the 5 core skills for your role.</div>
+      <div class="q-hint">These skills have been pre-defined for your department.</div>
       <div class="skills-table-wrap">
         <table class="skills-table">
           <thead>
             <tr>
-              <th>Skill Name</th>
-              <th>Rating (1–5)</th>
+              <th>Core Skill</th>
+              <th>Self-Rating (1–5)</th>
             </tr>
           </thead>
-          <tbody id="skillsBody">
-            <tr><td><input type="text" placeholder="Skill 1" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
-            <tr><td><input type="text" placeholder="Skill 2" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
-            <tr><td><input type="text" placeholder="Skill 3" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
-            <tr><td><input type="text" placeholder="Skill 4" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
-            <tr><td><input type="text" placeholder="Skill 5" /></td><td><select><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+          <tbody>
+            <tr>
+              <td>
+                <span class="skill-name">Product &amp; Gemstone Knowledge</span>
+                <span class="skill-desc">4Cs, lab-grown vs mined, IGI/GIA certification, gemstone alternatives</span>
+              </td>
+              <td>
+                <div class="rating-group">
+                  <input type="radio" name="skill1" id="s1r1" value="1"><label for="s1r1">1</label>
+                  <input type="radio" name="skill1" id="s1r2" value="2"><label for="s1r2">2</label>
+                  <input type="radio" name="skill1" id="s1r3" value="3"><label for="s1r3">3</label>
+                  <input type="radio" name="skill1" id="s1r4" value="4"><label for="s1r4">4</label>
+                  <input type="radio" name="skill1" id="s1r5" value="5"><label for="s1r5">5</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="skill-name">Client Consultation &amp; Discovery</span>
+                <span class="skill-desc">Reading client needs, personalising recommendations</span>
+              </td>
+              <td>
+                <div class="rating-group">
+                  <input type="radio" name="skill2" id="s2r1" value="1"><label for="s2r1">1</label>
+                  <input type="radio" name="skill2" id="s2r2" value="2"><label for="s2r2">2</label>
+                  <input type="radio" name="skill2" id="s2r3" value="3"><label for="s2r3">3</label>
+                  <input type="radio" name="skill2" id="s2r4" value="4"><label for="s2r4">4</label>
+                  <input type="radio" name="skill2" id="s2r5" value="5"><label for="s2r5">5</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="skill-name">Conversion &amp; Upselling</span>
+                <span class="skill-desc">Moving from interest to purchase; complementary pieces; bespoke pathway</span>
+              </td>
+              <td>
+                <div class="rating-group">
+                  <input type="radio" name="skill3" id="s3r1" value="1"><label for="s3r1">1</label>
+                  <input type="radio" name="skill3" id="s3r2" value="2"><label for="s3r2">2</label>
+                  <input type="radio" name="skill3" id="s3r3" value="3"><label for="s3r3">3</label>
+                  <input type="radio" name="skill3" id="s3r4" value="4"><label for="s3r4">4</label>
+                  <input type="radio" name="skill3" id="s3r5" value="5"><label for="s3r5">5</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="skill-name">Complaint Handling &amp; Recovery</span>
+                <span class="skill-desc">Composure under pressure, resolving post-purchase concerns, 4.9★ reputation</span>
+              </td>
+              <td>
+                <div class="rating-group">
+                  <input type="radio" name="skill4" id="s4r1" value="1"><label for="s4r1">1</label>
+                  <input type="radio" name="skill4" id="s4r2" value="2"><label for="s4r2">2</label>
+                  <input type="radio" name="skill4" id="s4r3" value="3"><label for="s4r3">3</label>
+                  <input type="radio" name="skill4" id="s4r4" value="4"><label for="s4r4">4</label>
+                  <input type="radio" name="skill4" id="s4r5" value="5"><label for="s4r5">5</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="skill-name">Brand &amp; Process Standards</span>
+                <span class="skill-desc">'Grown not mined' ethos, documentation, cross-team communication</span>
+              </td>
+              <td>
+                <div class="rating-group">
+                  <input type="radio" name="skill5" id="s5r1" value="1"><label for="s5r1">1</label>
+                  <input type="radio" name="skill5" id="s5r2" value="2"><label for="s5r2">2</label>
+                  <input type="radio" name="skill5" id="s5r3" value="3"><label for="s5r3">3</label>
+                  <input type="radio" name="skill5" id="s5r4" value="4"><label for="s5r4">4</label>
+                  <input type="radio" name="skill5" id="s5r5" value="5"><label for="s5r5">5</label>
+                </div>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">3) How do you think your role also requires cross-functional skills (e.g., Support using Sales skills, Marketing using Support empathy)? Explain with a scenario.</div>
-      <div class="field"><textarea id="kra3" placeholder="Share a scenario…"></textarea></div>
+      <div class="q-label">2.3 How does your role require cross-functional skills? Explain with a real scenario from this quarter.</div>
+      <div class="q-hint">e.g. Support using Sales empathy, Marketing using Support insights, Ops using client communication skills.</div>
+      <div class="field"><textarea id="q2_3" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">4) How consistently are you able to satisfy clients or resolve queries? How easy do you find this?</div>
-      <div class="field"><textarea id="kra4" placeholder="Your response…"></textarea></div>
+      <div class="q-label">2.4 How consistently are you able to satisfy clients or resolve queries? How easy do you find this?</div>
+      <div class="field"><textarea id="q2_4" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">5) How do you manage your day-to-day tasks, and how does your approach change during busy or high-pressure days?</div>
-      <div class="field"><textarea id="kra6" placeholder="Your response…"></textarea></div>
+      <div class="q-label">2.5 Describe a specific client interaction or query that did not go as planned — what happened, and what did you do?</div>
+      <div class="q-hint">A scenario tells us more than "I consistently satisfy clients."</div>
+      <div class="field"><textarea id="q2_5" placeholder="Be specific — what went wrong and how you handled it…"></textarea></div>
     </div>
   </div>
 
@@ -377,32 +524,39 @@
     <h2>3. Technical Knowledge &amp; Product Expertise</h2>
 
     <div class="q-block">
-      <div class="q-label">1) How would you rate your product knowledge on a scale of 1 to 5?</div>
-      <div class="field narrow-select">
-        <select id="productRating">
-          <option value="">Select Rating</option>
-          <option value="1 - Poor">1 – Poor</option>
-          <option value="2 - Fair">2 – Fair</option>
-          <option value="3 - Good">3 – Good</option>
-          <option value="4 - Very Good">4 – Very Good</option>
-          <option value="5 - Excellent">5 – Excellent</option>
-        </select>
+      <div class="q-label">3.1 Answer this client scenario as you would on the floor or in a live chat:</div>
+      <div class="scenario-box">
+        <strong>"I'm comparing a 1ct VS1 lab-grown diamond ring with a 0.9ct VVS2 mined diamond ring at the same price. Which should I choose?"</strong><br><br>
+        Cover: origin, VS1 vs VVS2 visual difference at these sizes, value for money, and how you'd read what matters most to the client.
+      </div>
+      <div class="field"><textarea id="q3_1" placeholder="Answer as you would to a real client…" style="min-height:130px;"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">3.2 Based on your answer above, rate your overall product knowledge:</div>
+      <div class="q-hint">1 — Needs Work &nbsp;&nbsp; 2 — Developing &nbsp;&nbsp; 3 — Competent &nbsp;&nbsp; 4 — Strong &nbsp;&nbsp; 5 — Expert</div>
+      <div class="score-scale" id="techRatingGroup">
+        <input type="radio" name="techRating" id="tr1" value="1 - Needs Work"><label for="tr1">1</label>
+        <input type="radio" name="techRating" id="tr2" value="2 - Developing"><label for="tr2">2</label>
+        <input type="radio" name="techRating" id="tr3" value="3 - Competent"><label for="tr3">3</label>
+        <input type="radio" name="techRating" id="tr4" value="4 - Strong"><label for="tr4">4</label>
+        <input type="radio" name="techRating" id="tr5" value="5 - Expert"><label for="tr5">5</label>
       </div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">2) Please summarize your knowledge about diamond specifications (4Cs), our jewelry types, and the technical info required before a customer places an order.</div>
-      <div class="field"><textarea id="tech2" placeholder="Your response…"></textarea></div>
+      <div class="q-label">3.3 Summarise your knowledge of diamond specifications (4Cs), jewellery types, and what a client needs to know before placing an order.</div>
+      <div class="field"><textarea id="q3_3" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">3) How well do you understand the specific technical differences and sustainability of <em>lab-grown</em> diamonds vs mined?</div>
-      <div class="field"><textarea id="tech3" placeholder="Your response…"></textarea></div>
+      <div class="q-label">3.4 How well do you understand the differences between lab-grown and mined diamonds — technically and from a sustainability perspective?</div>
+      <div class="field"><textarea id="q3_4" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">4) How consistently do you provide accurate technical information to customers, and have you contributed that knowledge to internal FAQs or the team knowledge base?</div>
-      <div class="field"><textarea id="tech4" placeholder="Your response…"></textarea></div>
+      <div class="q-label">3.5 How consistently do you provide accurate technical information to customers, and have you contributed that knowledge to internal FAQs or the team knowledge base?</div>
+      <div class="field"><textarea id="q3_5" placeholder="Your response…"></textarea></div>
     </div>
   </div>
 
@@ -411,13 +565,19 @@
     <h2>4. Soft Skills &amp; Crisis Management</h2>
 
     <div class="q-block">
-      <div class="q-label">1) How do you adapt your communication style for different customer personas, and can you describe a time you turned a frustrated customer into a satisfied one?</div>
-      <div class="field"><textarea id="soft1" placeholder="Share your experience…"></textarea></div>
+      <div class="q-label">4.1 How do you adapt your communication style for different customer personas, and can you describe a time you turned a frustrated customer into a satisfied one?</div>
+      <div class="field"><textarea id="q4_1" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">2) How effectively do you work with other departments (like Sales, Marketing, or Logistics) to solve issues?</div>
-      <div class="field"><textarea id="soft3" placeholder="Your response…"></textarea></div>
+      <div class="q-label">4.2 How effectively do you work with other departments (like Sales, Marketing, or Logistics) to solve issues?</div>
+      <div class="field"><textarea id="q4_2" placeholder="Your response…"></textarea></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">4.3 Describe a situation this quarter where you collaborated with another team to solve a client or operational issue.</div>
+      <div class="q-hint">What was your role, what did you do, and what was the outcome?</div>
+      <div class="field"><textarea id="q4_3" placeholder="Your response…"></textarea></div>
     </div>
   </div>
 
@@ -426,13 +586,14 @@
     <h2>5. Process Improvements</h2>
 
     <div class="q-block">
-      <div class="q-label">1) Did you notice any recurring customer complaints, bottlenecks, or bugs this period? How did you report or address them?</div>
-      <div class="field"><textarea id="proc1" placeholder="Your response…"></textarea></div>
+      <div class="q-label">5.1 Did you notice any recurring customer complaints, bottlenecks, or bugs this period? How did you report or address them?</div>
+      <div class="field"><textarea id="q5_1" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">2) Have you suggested or implemented a shortcut, template, or workflow change that saved time for the team?</div>
-      <div class="field"><textarea id="proc2" placeholder="Your response…"></textarea></div>
+      <div class="q-label">5.2 Is there a tool, system, or resource that would help you do your job better?</div>
+      <div class="q-hint">This surfaces operational blockers your manager may not be aware of.</div>
+      <div class="field"><textarea id="q5_2" placeholder="Your response…"></textarea></div>
     </div>
   </div>
 
@@ -441,23 +602,71 @@
     <h2>6. Professional Development &amp; Future Goals</h2>
 
     <div class="q-block">
-      <div class="q-label">1) What was the biggest challenge you faced this year, how did you overcome it, and what new skill or knowledge did you gain from that experience?</div>
-      <div class="field"><textarea id="dev1" placeholder="Your response…"></textarea></div>
+      <div class="q-label">6.1 What was the biggest challenge you faced this year, how did you overcome it, and what new skill or knowledge did you gain from that experience?</div>
+      <div class="field"><textarea id="q6_1" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">2) What other skills would you want to learn, or what skills do you already have that you haven't been able to use — and are there areas where you feel you need additional training or support?</div>
-      <div class="field"><textarea id="dev2" placeholder="Your response…"></textarea></div>
+      <div class="q-label">6.2 What skills do you want to develop next quarter? Are there areas where you need additional training or support?</div>
+      <div class="q-hint">Also mention skills you already have that you haven't been able to use in this role.</div>
+      <div class="field"><textarea id="q6_2" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">3) Is there anything in this role that you dislike?</div>
-      <div class="field"><textarea id="dev3" placeholder="Your response…"></textarea></div>
+      <div class="q-label">6.3 What aspects of the role would you change to help you perform better?</div>
+      <div class="q-hint">Think about tools, briefings, training, scheduling, or team processes. Concrete suggestions are most useful.</div>
+      <div class="field"><textarea id="q6_3" placeholder="Your response…"></textarea></div>
     </div>
 
     <div class="q-block">
-      <div class="q-label">4) What personal and professional goals have you set for yourself this year, and how do you see them aligning with your growth at Renaissance Jewel?</div>
-      <div class="field"><textarea id="dev4" placeholder="Your response…"></textarea></div>
+      <div class="q-label">6.4 What personal and professional goals have you set for yourself this year, and how do you see them aligning with your growth at Renaissance Jewel?</div>
+      <div class="field"><textarea id="q6_4" placeholder="Your response…"></textarea></div>
+    </div>
+  </div>
+
+  <!-- 7. OVERALL ASSESSMENT -->
+  <div class="card">
+    <h2>7. Overall Assessment</h2>
+
+    <div class="q-block">
+      <div class="q-label">7.1 On a scale of 1–10, what rating do you think your manager will give you and why?</div>
+      <div class="score-scale">
+        <input type="radio" name="managerScore" id="ms1" value="1"><label for="ms1">1</label>
+        <input type="radio" name="managerScore" id="ms2" value="2"><label for="ms2">2</label>
+        <input type="radio" name="managerScore" id="ms3" value="3"><label for="ms3">3</label>
+        <input type="radio" name="managerScore" id="ms4" value="4"><label for="ms4">4</label>
+        <input type="radio" name="managerScore" id="ms5" value="5"><label for="ms5">5</label>
+        <input type="radio" name="managerScore" id="ms6" value="6"><label for="ms6">6</label>
+        <input type="radio" name="managerScore" id="ms7" value="7"><label for="ms7">7</label>
+        <input type="radio" name="managerScore" id="ms8" value="8"><label for="ms8">8</label>
+        <input type="radio" name="managerScore" id="ms9" value="9"><label for="ms9">9</label>
+        <input type="radio" name="managerScore" id="ms10" value="10"><label for="ms10">10</label>
+      </div>
+      <div class="scale-legend"><span>1–4 = Below expectations</span><span>9–10 = Exceptional quarter</span></div>
+      <div class="field" style="margin-top:0.85rem;">
+        <textarea id="q7_1_why" placeholder="Why do you think your manager will give you this score?"></textarea>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">7.2 On a scale of 1–10, how would you rate your overall performance this quarter, and what is one thing you would do differently next quarter?</div>
+      <div class="q-hint">The most useful appraisals name the real gap, not the safe one.</div>
+      <div class="score-scale">
+        <input type="radio" name="selfScore" id="ss1" value="1"><label for="ss1">1</label>
+        <input type="radio" name="selfScore" id="ss2" value="2"><label for="ss2">2</label>
+        <input type="radio" name="selfScore" id="ss3" value="3"><label for="ss3">3</label>
+        <input type="radio" name="selfScore" id="ss4" value="4"><label for="ss4">4</label>
+        <input type="radio" name="selfScore" id="ss5" value="5"><label for="ss5">5</label>
+        <input type="radio" name="selfScore" id="ss6" value="6"><label for="ss6">6</label>
+        <input type="radio" name="selfScore" id="ss7" value="7"><label for="ss7">7</label>
+        <input type="radio" name="selfScore" id="ss8" value="8"><label for="ss8">8</label>
+        <input type="radio" name="selfScore" id="ss9" value="9"><label for="ss9">9</label>
+        <input type="radio" name="selfScore" id="ss10" value="10"><label for="ss10">10</label>
+      </div>
+      <div class="scale-legend"><span>1–4 = Below expectations</span><span>9–10 = Exceptional quarter</span></div>
+      <div class="field" style="margin-top:0.85rem;">
+        <textarea id="q7_2_why" placeholder="What would you do differently next quarter?"></textarea>
+      </div>
     </div>
   </div>
 
@@ -468,7 +677,7 @@
 
     <label class="checkbox-row">
       <input type="checkbox" id="consentCheck" />
-      <span>I acknowledge the confidentiality of this review process and agree to the terms stated above. <span class="req" style="color:#b8973a">*</span></span>
+      <span>I acknowledge the confidentiality of this review process and agree to the terms stated above. <span style="color:#b8973a">*</span></span>
     </label>
     <span class="field-error" id="err-consent" style="margin-top:0.35rem;">Please acknowledge the confidentiality agreement.</span>
 
@@ -483,12 +692,9 @@
 </div>
 
 <script>
-  function getSkillsData() {
-    return Array.from(document.querySelectorAll('#skillsBody tr')).map((row, i) => {
-      const name = row.querySelector('input').value.trim() || '—';
-      const rating = row.querySelector('select').value || '—';
-      return `Skill ${i+1}: ${name} (${rating})`;
-    }).join('; ');
+  function getRadioVal(name) {
+    const el = document.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : '—';
   }
 
   document.getElementById('appraisalForm').addEventListener('submit', async function(e) {
@@ -523,24 +729,43 @@
         "Full Name": val('fullName'),
         "Department/Team": val('team'),
         "Date Submitted": val('dateSubmitted'),
-        "Q1 Brand Alignment": val('q1'),
-        "KRA1 Primary Responsibility & KRAs": val('kra1'),
-        "KRA2 Skills & Ratings": getSkillsData(),
-        "KRA3 Cross-Functional Skills": val('kra3'),
-        "KRA4 Client Satisfaction": val('kra4'),
-        "KRA5 Task Management & Busy Days": val('kra6'),
-        "Tech1 Product Rating": val('productRating'),
-        "Tech2 Diamond Knowledge": val('tech2'),
-        "Tech3 Lab vs Mined": val('tech3'),
-        "Tech4 Accuracy & Knowledge Sharing": val('tech4'),
-        "Soft1 Customer Handling & Communication": val('soft1'),
-        "Soft2 Cross-Dept Collaboration": val('soft3'),
-        "Proc1 Recurring Issues": val('proc1'),
-        "Proc2 Process Improvements": val('proc2'),
-        "Dev1 Biggest Challenge & Learnings": val('dev1'),
-        "Dev2 Skills to Learn & Training Needs": val('dev2'),
-        "Dev3 Dislikes in Role": val('dev3'),
-        "Dev4 Goals & Growth at Renaissance Jewel": val('dev4'),
+
+        "1.1 Modern Luxury Standard": val('q1_1'),
+        "1.2 Positive Client Example": val('q1_2'),
+        "1.3 Client Interaction Shortfall": val('q1_3'),
+
+        "2.1 Primary Responsibilities & Task Management": val('q2_1'),
+        "2.2 Skill - Product & Gemstone Knowledge": getRadioVal('skill1'),
+        "2.2 Skill - Client Consultation & Discovery": getRadioVal('skill2'),
+        "2.2 Skill - Conversion & Upselling": getRadioVal('skill3'),
+        "2.2 Skill - Complaint Handling & Recovery": getRadioVal('skill4'),
+        "2.2 Skill - Brand & Process Standards": getRadioVal('skill5'),
+        "2.3 Cross-Functional Skills Scenario": val('q2_3'),
+        "2.4 Client Satisfaction Consistency": val('q2_4'),
+        "2.5 Client Interaction That Did Not Go as Planned": val('q2_5'),
+
+        "3.1 Client Scenario Answer": val('q3_1'),
+        "3.2 Product Knowledge Self-Rating": getRadioVal('techRating'),
+        "3.3 Diamond Specifications Knowledge": val('q3_3'),
+        "3.4 Lab-Grown vs Mined Understanding": val('q3_4'),
+        "3.5 Accuracy & Knowledge Sharing": val('q3_5'),
+
+        "4.1 Communication Style & Customer Recovery": val('q4_1'),
+        "4.2 Cross-Dept Collaboration": val('q4_2'),
+        "4.3 Collaboration Scenario This Quarter": val('q4_3'),
+
+        "5.1 Recurring Issues & Bottlenecks": val('q5_1'),
+        "5.2 Tools or Resources Needed": val('q5_2'),
+
+        "6.1 Biggest Challenge & Learnings": val('q6_1'),
+        "6.2 Skills to Develop & Training Needs": val('q6_2'),
+        "6.3 Role Changes for Better Performance": val('q6_3'),
+        "6.4 Personal & Professional Goals": val('q6_4'),
+
+        "7.1 Expected Manager Score": getRadioVal('managerScore'),
+        "7.1 Reason for Manager Score": val('q7_1_why'),
+        "7.2 Self Performance Score": getRadioVal('selfScore'),
+        "7.2 What to Do Differently": val('q7_2_why'),
       }
     };
 
@@ -565,4 +790,5 @@
   });
 </script>
 </body>
+</html>
 </html>
